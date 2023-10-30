@@ -8,11 +8,11 @@
     "tsConfigPath": "apps/backend/tsconfig.backend.json"
   },
   "monorepo": true,
-  "root": "apps/users",
+  "root": "apps/user",
   "projects": {
     "backend": {
       "type": "application",
-      "root": "apps/users",
+      "root": "apps/user",
       "entryFile": "main",
       "sourceRoot": "apps/backend/src",
       "compilerOptions": {

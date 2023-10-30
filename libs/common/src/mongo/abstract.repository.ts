@@ -74,11 +74,12 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     return this.model.find(filterQuery, {}, { lean: true });
   }
 
-//   async startTransaction() {
-//     const session = await this.connection.startSession();
-//     session.startTransaction();
-//     return session;
-//   }
+  //   async startTransaction() {
+  //     const session = await this.connection.startSession();
+  //     session.startTransaction();
+  //     return session;
+  //   }
+
   async startTransaction(): Promise<ClientSession> {
     const session = await this.connection.startSession();
     session.startTransaction();

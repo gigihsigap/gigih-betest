@@ -8,21 +8,32 @@ import {
   Request,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { Public } from './decorators/public.decorator';
+import { Public } from '@app/common/auth/auth.decorator';
+import { UserService } from '../user/user.service';
+import { CreateUserDto } from './dto/register-user.dto';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
-
+  constructor(
+    private authService: AuthService,
+    private userService: UserService
+  ) {}
+  
   @Public()
   @HttpCode(HttpStatus.OK)
-  @Post('login')
-  signIn(@Body() signInDto: Record<string, any>) {
-    return this.authService.signIn(signInDto.username, signInDto.password);
+  @Get('refresh-token')
+  async signIn() {
+    return this.authService.refreshToken();
   }
 
-  @Get('profile')
-  getProfile(@Request() req) {
+  @Get('protected')
+  async getProfile(@Request() req) {
     return req.user;
+  }
+
+  @Public()
+  @Post('register')
+  async register(@Body() createUserDto: CreateUserDto) {
+    return this.userService.createUser(createUserDto.emailAddress, createUserDto.userName)
   }
 }
