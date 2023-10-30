@@ -2,8 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "outDir": "../../public/libs/common"
+    "outDir": "../../dist/libs/common"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "public", "test", "**/*spec.ts"]
+  "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
 }

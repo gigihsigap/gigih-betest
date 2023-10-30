@@ -6,7 +6,6 @@
 # Build dependencies
 dist.do
 node_modules
-public
 
 # Environment
 .env
