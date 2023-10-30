@@ -1,4 +1,3 @@
-<p align="center">
 ## Description
 
 Developed using [Nest](https://github.com/nestjs/nest).
